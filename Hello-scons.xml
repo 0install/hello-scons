@@ -11,7 +11,7 @@ fetch the source and the build system (scons).
 
   <homepage>http://0install.net/0compile.html</homepage>
 
-  <feed-for interface="http://0install.net/tests/Hello-scons"/>
+  <feed-for interface="http://0install.net/tests/Hello-scons.xml"/>
 
   <group arch="*-src" compile:command='"$SCONS/scons.py" -C "$SRCDIR" builddir="$BUILDDIR" "$DISTDIR"' compile:binary-main='hello'>
     <requires interface="http://0install.net/tests/SCons.xml">

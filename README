@@ -12,7 +12,7 @@ To build, run 0compile with the Hello-scons interface as the first argument and
 a directory for the build as the second. You can either give the URL of
 Hello-scons (to fetch both the source and SCons using Zero Install):
 
-$ 0compile setup http://0install.net/tests/Hello-scons Hello-scons
+$ 0compile setup http://0install.net/tests/Hello-scons.xml Hello-scons
 
 Or, if you've already downloaded the Hello-scons source archive manually, you
 can use the interface inside the extracted archive:
