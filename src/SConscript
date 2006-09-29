@@ -1,0 +1,6 @@
+import os
+
+Import('env')
+
+hello = env.Program('hello.c')
+env.Install(os.environ['DISTDIR'], hello)
