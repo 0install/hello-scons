@@ -1,0 +1,65 @@
+Name: Hello-scons
+Author: Thomas Leonard
+License: Public domain
+Date: 2006-09-29
+
+This is a simple "Hello world" program written in C. It is built using SCons.
+
+Its purpose is to demonstrate the use of 0compile to fetch build dependencies;
+you do not need to install SCons manually on your system in order to build it.
+
+To build, run 0compile with the Hello-scons interface as the first argument and
+a directory for the build as the second. You can either give the URL of
+Hello-scons (to fetch both the source and SCons using Zero Install):
+
+$ 0compile setup http://0install.net/tests/Hello-scons Hello-scons
+
+Or, if you've already downloaded the Hello-scons source archive manually, you
+can use the interface inside the extracted archive:
+
+$ 0compile setup ./Hello-scons.xml Hello-scons
+
+Either way, 0compile will create a 'Hello-scons' directory for the build.
+You will be prompted to choose the versions of Hello-scons and SCons (if you
+used the local interface file then only that version of Hello-scons will
+be available).
+
+To build, change into the new directory and use the build command:
+
+$ cd Hello-scons
+$ 0compile build
+
+This creates a 'hello-scons-1.0' directory ready for use and/or distribution,
+and a 'build' directory with some temporary files, such as 'hello.o'. This is
+used only to speed up later rebuilds.
+
+To run:
+
+$ 0launch hello-scons-1.0/0install/Hello-scons.xml
+Hello world!
+
+To see or modify a copy of the source:
+
+$ 0compile copy-src
+
+This creates a 'src' subdirectory. For more information (including how to
+publish the binary using Zero Install), see the main 0compile tutorial:
+
+  http://0install.net/0compile.html
+
+
+Notes:
+
+The main issues with using SCons with 0compile are that:
+
+- SCons defaults to saving build files in the source directory. 0compile
+  requires that the source directory is assumed to be read-only (and if
+  plash is installed, this is enforced). Therefore, you must set the build
+  and signature database directories to the build directory.
+
+- By default, SCons resets all environment variables. This means that
+  instead of compiling against the library versions you chose, it will
+  build against whatever happens to be the default on the system today.
+  This also breaks plash, which requires certain variables to be set.
+
+The example SConstruct file shows how to fix these problems.

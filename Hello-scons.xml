@@ -13,7 +13,7 @@ fetch the source and the build system (scons).
 
   <feed-for interface="http://0install.net/tests/Hello-scons"/>
 
-  <group arch="*-src" compile:command='"$SCONS/scons.py" -C "$SRCDIR" builddir="$BUILDDIR"' compile:binary-main='hello'>
+  <group arch="*-src" compile:command='"$SCONS/scons.py" -C "$SRCDIR" builddir="$BUILDDIR" "$DISTDIR"' compile:binary-main='hello'>
     <requires interface="http://0install.net/tests/SCons.xml">
       <environment insert="" name="SCONS"/>
     </requires>

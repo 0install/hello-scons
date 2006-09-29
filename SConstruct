@@ -9,7 +9,7 @@ import os
 env = Environment(ENV = os.environ)
 Export('env')
 
-build_dir = ARGUMENTS.get('build_dir', 'Hello-scons/build')
+build_dir = ARGUMENTS.get('builddir', 'Hello-scons/build')
 print "Bulding in", build_dir
 
 # Store signature information in build directory
