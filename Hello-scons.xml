@@ -12,11 +12,15 @@ fetch the source and the build system (scons).
 
   <feed-for interface="http://0install.net/tests/Hello-scons.xml"/>
 
-  <group arch="*-src" compile:binary-main="hello" compile:command="&quot;$SCONS/scons.py&quot; -f &quot;$SRCDIR/SConstruct&quot; --srcdir=&quot;$SRCDIR&quot; &quot;$DISTDIR&quot;">
-    <requires interface="http://0install.net/2006/3rd-party/SCons.xml">
-      <environment insert="" name="SCONS"/>
-      <version not-before="2"/>
-    </requires>
+  <group arch="*-src" compile:binary-main="hello">
+    <command name='compile' path='SConstruct'>
+      <runner interface="http://0install.net/2006/3rd-party/SCons.xml">
+	<version not-before="2"/>
+	<arg>-f</arg>
+      </runner>
+      <arg>--srcdir=${SRCDIR}</arg>
+      <arg>${DISTDIR}</arg>
+    </command>
 
     <implementation id="." version="1.1-post"/>
   </group>
