@@ -1,6 +1,5 @@
 <?xml version="1.0" ?>
-<?xml-stylesheet type='text/xsl'
-     href='http://0install.net/2006/stylesheets/interface.xsl'?>
+<?xml-stylesheet type='text/xsl' href='interface.xsl'?>
 <interface xmlns="http://zero-install.sourceforge.net/2004/injector/interface" xmlns:compile="http://zero-install.sourceforge.net/2006/namespaces/0compile">
   <name>Hello-scons</name>
   <summary>example of building with scons</summary>
@@ -13,12 +12,12 @@ fetch the source and the build system (scons).
 
   <feed-for interface="http://0install.net/tests/Hello-scons.xml"/>
 
-  <group arch="*-src" compile:binary-main="hello" compile:command='"$SCONS/scons.py" -f "$SRCDIR/SConstruct" --srcdir="$SRCDIR" "$DISTDIR"'>
+  <group arch="*-src" compile:binary-main="hello" compile:command="&quot;$SCONS/scons.py&quot; -f &quot;$SRCDIR/SConstruct&quot; --srcdir=&quot;$SRCDIR&quot; &quot;$DISTDIR&quot;">
     <requires interface="http://0install.net/2006/3rd-party/SCons.xml">
       <environment insert="" name="SCONS"/>
-      <version not-before='2'/>
+      <version not-before="2"/>
     </requires>
 
-    <implementation id="." version="1.0-post"/>
+    <implementation id="." released="2011-05-28" version="1.1"/>
   </group>
 </interface>
