@@ -1,6 +1,6 @@
 import os
 
-Import('env')
+dist_dir = os.environ['DISTDIR']
 
-hello = env.Program('hello.c')
-env.Install(os.environ['DISTDIR'], hello)
+Import('env')
+env.Program(target = os.path.join(dist_dir, 'hello'), source = ['hello.c'])

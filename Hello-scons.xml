@@ -9,15 +9,16 @@ This package shows how to compile a simple C program, using Zero Install to
 fetch the source and the build system (scons).
   </description>
 
-  <homepage>http://0install.net/0compile.html</homepage>
+  <homepage>http://0install.net/0compile-scons.html</homepage>
 
   <feed-for interface="http://0install.net/tests/Hello-scons.xml"/>
 
-  <group arch="*-src" compile:command='"$SCONS/scons.py" -C "$SRCDIR" builddir="$BUILDDIR" "$DISTDIR"' compile:binary-main='hello'>
-    <requires interface="http://0install.net/tests/SCons.xml">
+  <group arch="*-src" compile:binary-main="hello" compile:command='"$SCONS/scons.py" -f "$SRCDIR/SConstruct" --srcdir="$SRCDIR" "$DISTDIR"'>
+    <requires interface="http://0install.net/2006/3rd-party/SCons.xml">
       <environment insert="" name="SCONS"/>
+      <version not-before='2'/>
     </requires>
 
-    <implementation id="." released="Snapshot" version="1.0"/>
+    <implementation id="." version="1.0-post"/>
   </group>
 </interface>

@@ -9,15 +9,7 @@ import os
 env = Environment(ENV = os.environ)
 Export('env')
 
-build_dir = ARGUMENTS.get('builddir', 'Hello-scons/build')
-print "Bulding in", build_dir
-
-# Store signature information in build directory
-SConsign.File(build_dir + os.sep)
-
 # Build in build directory
 # Note: for more complex projects, you may want to turn duplicate on
 # (see the scons manual for details)
-SConscript('src/SConscript',
-	build_dir = build_dir,
-	duplicate = 0)
+SConscript(os.path.join(os.environ['SRCDIR'], 'src', 'SConscript'))
